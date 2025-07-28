@@ -1,117 +1,131 @@
-📦 API de Productos
-Esta API permite gestionar productos y autenticarse mediante login. Se conecta a Firebase como backend de datos y utiliza autenticación JWT.
+# 📦 API de Productos
 
-🚀 Instalación
-Clona este repositorio:
+Una API RESTful para la gestión de productos, autenticación de usuarios y conexión segura con Firebase Firestore. Utiliza autenticación JWT y está diseñada para ser fácil de desplegar y escalar.
 
-bash
-Copiar
-Editar
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
-Instala las dependencias:
+---
 
-bash
-Copiar
-Editar
-npm install
-Se instalan los siguientes paquetes:
+## 🚀 Instalación
 
-express — servidor web
+1. **Clona este repositorio:**
 
-cors — habilita peticiones entre dominios
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repo.git
+   cd tu-repo
+   ```
 
-body-parser — interpreta los JSON del body
+2. **Instala las dependencias:**
 
-dotenv — gestiona variables de entorno
+   ```bash
+   npm install
+   ```
 
-firebase — conexión con Firestore
+   > **Dependencias principales:**
+   > - [`express`](https://expressjs.com/) — Servidor web rápido y minimalista.
+   > - [`cors`](https://www.npmjs.com/package/cors) — Habilita peticiones entre dominios.
+   > - [`body-parser`](https://www.npmjs.com/package/body-parser) — Interpreta el cuerpo de las peticiones en JSON.
+   > - [`dotenv`](https://www.npmjs.com/package/dotenv) — Gestión de variables de entorno.
+   > - [`firebase`](https://firebase.google.com/docs/firestore) — Conexión con Firestore.
+   > - [`jsonwebtoken`](https://www.npmjs.com/package/jsonwebtoken) — Autenticación con tokens JWT.
 
-jsonwebtoken — autenticación con tokens
+---
 
-⚙️ Configuración
-Crea un archivo .env en la raíz del proyecto con tus variables de entorno, por ejemplo:
+## ⚙️ Configuración
 
-env
-Copiar
-Editar
+Crea un archivo `.env` en la raíz del proyecto con tus variables de entorno:
+
+```env
 PORT=3000
 JWT_SECRET=clave_secreta_segura
 FIREBASE_API_KEY=tu_clave
 FIREBASE_AUTH_DOMAIN=tu_dominio
 FIREBASE_PROJECT_ID=tu_project_id
-...
-El servidor se inicia desde index.js, donde:
+# ...otras variables si es necesario
+```
 
-Se configura CORS
+---
 
-Se habilita body-parser globalmente
+## 🚦 Inicio del Servidor
 
-Se definen las rutas
+El servidor principal se encuentra en `index.js`, donde se configura:
 
-Se maneja la ruta 404 para endpoints inexistentes
+- **CORS** globalmente
+- **Body-parser** para todas las rutas
+- **Definición de rutas**
+- **Manejo de errores (404)** para endpoints inexistentes
 
-🛠️ Uso de la API
-🔐 Autenticación
-POST /auth/login
-Autentica al usuario y devuelve un token JWT.
+---
 
-Body esperado (JSON):
+## 🛠️ Uso de la API
 
-json
-Copiar
-Editar
+### 🔐 Autenticación
+
+`POST /auth/login`
+
+Autentica un usuario y devuelve un token JWT para acceder a rutas protegidas.
+
+**Body esperado:**
+
+```json
 {
-  "email": "alanleonelmaciel@gmail.com",
-  "password": "1234"
+  "email": "usuario@email.com",
+  "password": "contraseña"
 }
-Respuesta exitosa:
+```
 
-json
-Copiar
-Editar
+**Respuesta exitosa:**
+
+```json
 {
   "token": "Bearer eyJhbGciOiJIUzI1NiIs..."
 }
-📦 Rutas de Productos
-GET /api/products
-Obtiene todos los productos.
+```
 
-GET /api/products/:id
-Obtiene un producto por ID.
+---
 
-POST /api/products/create
-Crea un nuevo producto.
+### 📦 Rutas de Productos
 
-Body esperado (JSON):
+- **GET `/api/products`**  
+  _Obtiene todos los productos._
 
-json
-Copiar
-Editar
-{
-  "name": "Producto ejemplo",
-  "price": 1000,
-  "description": "Descripción del producto"
-}
-Autenticación: se requiere enviar el token JWT en el encabezado Authorization.
+- **GET `/api/products/:id`**  
+  _Obtiene un producto por su ID._
 
-DELETE /api/products/:id
-Elimina un producto por ID.
+- **POST `/api/products/create`**  
+  _Crea un nuevo producto (requiere autenticación)._
 
-Autenticación: se requiere token JWT.
+  **Body esperado:**
+  ```json
+  {
+    "name": "Producto ejemplo",
+    "price": 1000,
+    "description": "Descripción del producto"
+  }
+  ```
+  > Recuerda enviar el token JWT en el encabezado `Authorization`.
 
-❌ Rutas Desconocidas
+- **DELETE `/api/products/:id`**  
+  _Elimina un producto por ID (requiere autenticación)._
+
+---
+
+### ❌ Rutas Desconocidas
+
 Las rutas no definidas devuelven:
 
-json
-Copiar
-Editar
+```json
 {
   "error": "Ruta no encontrada"
 }
-con estado HTTP 404.
+```
+con estado HTTP **404**.
 
-🧑‍💻 Autor
-Alan Leonel Maciel
+---
 
-Email: alanleonelmaciel@gmail.com
+## 🧑‍💻 Autor
+
+**Alan Leonel Maciel**  
+✉️ [alanleonelmaciel@gmail.com](mailto:alanleonelmaciel@gmail.com)
+
+---
+
+¡Gracias por usar esta API! Si tienes dudas o sugerencias, no dudes en contactarme.
