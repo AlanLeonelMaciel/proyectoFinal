@@ -69,8 +69,8 @@ Autentica un usuario y devuelve un token JWT para acceder a rutas protegidas.
 
 ```json
 {
-  "email": "usuario@email.com",
-  "password": "contraseña"
+  "email": "alanleonelmaciel@gmail.com",
+  "password": "1234"
 }
 ```
 
