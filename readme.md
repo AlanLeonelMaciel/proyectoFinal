@@ -95,13 +95,14 @@ Autentica un usuario y devuelve un token JWT para acceder a rutas protegidas.
 - **POST `/api/products/create`**  
   _Crea un nuevo producto (requiere autenticación)._
 
-  **Body esperado:**
+  **Body esperado(ejemplo):**
   ```json
-  {
-    "name": "Producto ejemplo",
-    "price": 1000,
-    "description": "Descripción del producto"
-  }
+    {
+        "price": 55,
+        "description": "vaso de vidrio.",
+        "stock": 30,
+        "name": "vaso"
+    }
   ```
   > Recuerda enviar el token JWT en el encabezado `Authorization`.
 
