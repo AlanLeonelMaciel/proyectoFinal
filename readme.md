@@ -9,8 +9,8 @@ Una API RESTful para la gestión de productos, autenticación de usuarios y cone
 1. **Clona este repositorio:**
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repo.git
-   cd tu-repo
+   git clone https://github.com/AlanLeonelMaciel/proyectoFinal.git
+   cd proyectoFinal
    ```
 
 2. **Instala las dependencias:**
