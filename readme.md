@@ -34,11 +34,13 @@ Una API RESTful para la gestión de productos, autenticación de usuarios y cone
 Crea un archivo `.env` en la raíz del proyecto con tus variables de entorno:
 
 ```env
-PORT=3000
-JWT_SECRET=clave_secreta_segura
-FIREBASE_API_KEY=tu_clave
-FIREBASE_AUTH_DOMAIN=tu_dominio
-FIREBASE_PROJECT_ID=tu_project_id
+apiKey=claveSecreta
+authDomain=claveSecreta
+projectId=claveSecreta
+storageBucket=claveSecreta
+messagingSenderId=claveSecreta
+appId=claveSecreta
+jwt_secret_key=claveSecreta
 # ...otras variables si es necesario
 ```
 
